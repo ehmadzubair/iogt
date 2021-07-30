@@ -1,3 +1,4 @@
+import requests
 from django import template
 from wagtail.core.models import Locale, Site
 
@@ -93,3 +94,10 @@ def translated_home_page_url(language_code):
     home_page = default_home_page.get_translation_or_none(locale)
     page = home_page or default_home_page
     return page.url
+
+
+@register.inclusion_tag('home/tags/svg_icon.html')
+def svg_image(request, url):
+    abs_url = request.build_absolute_uri(url)
+    response = requests.get(abs_url)
+    return {'svg': response.content.decode('utf-8')}

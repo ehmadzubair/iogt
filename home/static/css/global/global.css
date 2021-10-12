@@ -537,13 +537,12 @@
   z-index: 999;
 }
 
-.language_drop > a:after {
+.language_drop > a > span {
   position: absolute;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 4px solid #303030;
   border-radius: 1px;
-  content: "";
   right: 11px;
   top: 50%;
   transform: translateY(-50%);
@@ -566,9 +565,9 @@
   z-index: 99;
 }
 
-.language_drop:hover > a:after,
-.language_drop:active > a:after,
-.language_drop:focus > a:after {
+.language_drop:hover > a > span,
+.language_drop:active > a > span,
+.language_drop:focus > a > span {
   border-top: 4px solid transparent;
   border-bottom: 4px solid #303030;
   margin: -2px 0 0;
